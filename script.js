@@ -20,7 +20,8 @@ function createGrid(cellCount) {
 }
 
 function hover(event) {
-    event.target.style.backgroundColor = 'black';
+    let color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random()*255)})`
+    event.target.style.backgroundColor = color;
 }
 
 function resize() {
