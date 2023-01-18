@@ -1,19 +1,30 @@
 const container = document.querySelector('.container');
+const button = document.querySelector('.btn');
+cellCount = 16;
+createGrid(cellCount);
+button.addEventListener('click', resize);
 
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement('div');
-    row.classList.add('row')
-    for (let j = 0; j< 16; j++) {
+
+function createGrid(cellCount) {
+    for(let i = 0; i < (cellCount); i++) {
+    const column = document.createElement('div');
+    for(let j = 0; j < (cellCount); j++) {
         const cell = document.createElement('div');
-        cell.classList.add('cell');
-        row.appendChild(cell);
-        cell.addEventListener("mouseover", highlight);
+        cell.classList.add('cell')
+        cell.setAttribute("style", `width: ${480/cellCount}px; height: ${480/cellCount}px`)
+        column.appendChild(cell);
+        cell.addEventListener('mouseover', hover)
     }
-    container.appendChild(row);
-
+    container.appendChild(column);
+    }
 }
 
-function highlight (event) {
-    event.target.style.backgroundColor = 'blue';
+function hover(event) {
+    event.target.style.backgroundColor = 'black';
 }
 
+function resize() {
+    container.innerHTML = "";
+    cellCount = Math.min(+(prompt("How many squares do you want on each side? ")), 100);
+    createGrid(cellCount);
+}

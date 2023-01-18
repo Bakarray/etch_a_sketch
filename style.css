@@ -1,14 +1,18 @@
 .container {
-    background-color: aliceblue;
-    border: 2px solid black;
-    margin: auto;
+    width: min-content;
+    height: min-content;
+    background-color: bisque;
+    margin: 10px auto;
     display: flex;
-    width: min-content
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
-    background-color: beige;
-    border: 0.5px solid blue;
+    border: 0.5px solid black;
+}
+
+.btn {
+    height: 50px;
+    display: flex;
+    margin: auto;
+    align-items: center;
 }
